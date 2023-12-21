@@ -1,14 +1,14 @@
-class HelloWorld {
+class ForLoop {
   public static void main(String[] args) {
     for (int i = 0; i < 10; i++) {
-        System.out.println(String(i) + "hello, world¥n");
+        System.out.println(String.valueOf(i) + "hello, world");
     }
     int i = 0;
     for (;;) {
-        System.out.println(String(i) + "hello, world¥n");
-        i++;
-        if i < 10;
-            break
+      System.out.println(String.valueOf(i) + "hello, world");
+      i++;
+      if (i >= 10)
+       break;
     }
   }
 }
