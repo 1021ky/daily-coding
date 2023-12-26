@@ -22,7 +22,7 @@ def insert_sort(target: list[int]) -> list[int]:
                 continue
             else:
                 # ソート済みの要素よりも小さい場合いれてターゲットの次の要素をソートする
-                result = result[0:i] + [t] + result[i:]
+                result.insert(i, t)
                 break
     return result
 
