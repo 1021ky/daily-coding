@@ -23,6 +23,7 @@ func (q *Queue) Dequeue() (int, error) {
 }
 
 func (q *Queue) Enqueue(item int) {
+	// TODO queueのサイズを固定して、queueがいっぱいだったら、先に入ったデータを消すようにする
 	q.data = append(q.data, item)
 }
 
