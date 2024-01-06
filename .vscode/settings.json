@@ -1,0 +1,9 @@
+{
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "go.useLanguageServer": false,
+    "go.formatTool": "gofmt"
+}
