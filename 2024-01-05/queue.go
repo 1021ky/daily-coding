@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type Queue struct{
+type Queue struct {
 	data []int
 }
 
@@ -27,7 +27,7 @@ func (q *Queue) Enqueue(item int) {
 	q.data = append(q.data, item)
 }
 
-func main(){
+func main() {
 	queue := &Queue{}
 	fmt.Println(queue.data)
 	queue.Enqueue(10)
