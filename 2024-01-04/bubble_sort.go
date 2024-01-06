@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // とりあえず書いてみたバブルソート
-func bubbleSort(param []int) []int{
+func bubbleSort(param []int) []int {
 	target := make([]int, len(param))
 	copy(target, param)
 	for i := 0; i < len(target); i++ {
@@ -17,6 +17,7 @@ func bubbleSort(param []int) []int{
 	}
 	return target
 }
+
 // goの文法を活かして書いてみたバブルソート
 func sortWithBubble(param []int) []int {
 	target := make([]int, len(param))
@@ -32,7 +33,7 @@ func sortWithBubble(param []int) []int {
 	return target
 }
 
-func main(){
+func main() {
 	param := []int{5, 2, 11, 7, 3, 13}
 	result := bubbleSort(param)
 	fmt.Println(result)
