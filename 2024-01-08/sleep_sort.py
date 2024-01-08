@@ -3,19 +3,23 @@ import time
 import unittest
 
 
-def wait_sleeping(target: int, result: list[int]):
+def wait_sleeping(target: int, result: list[int], lock: threading.Lock):
     wait_duration = (
         1.0 / -target if target < 0 else target
     ) / 1000  # millisecond単位でスリープする
     time.sleep(wait_duration)
-    result.append(target)
+    with lock:
+        result.append(target)
 
 
 def sleep_sort(sort_param: list[int]) -> list[int]:
     thread_list = []
     result = []  # スレッド内での結果を入れるリスト
+    lock = threading.Lock()
     for item in sort_param:
-        thread_list.append(threading.Thread(target=wait_sleeping, args=(item, result)))
+        thread_list.append(
+            threading.Thread(target=wait_sleeping, args=(item, result, lock))
+        )
     for t in thread_list:
         t.start()
     for t in thread_list:
