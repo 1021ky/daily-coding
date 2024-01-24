@@ -6,6 +6,10 @@
 __pycache__
 *.pyc
 
+# allure
+**/*-container.json
+**/*-result.json
+
 # csharp
 **/.dotnet/**
 *.tar.gz
