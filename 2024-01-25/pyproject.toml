@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "2024-01-25"
+version = "0.1.0"
+description = "use playwright with pytest"
+authors = ["Keisuke Yamanaka <2500024+1021ky@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-playwright = "^0.4.3"
+ruff = "^0.1.14"
+allure-pytest = "^2.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
