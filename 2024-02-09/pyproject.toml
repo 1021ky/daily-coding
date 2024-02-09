@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "2024-02-09"
+version = "0.1.0"
+description = ""
+authors = ["Keisuke Yamanaka <2500024+1021ky@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
