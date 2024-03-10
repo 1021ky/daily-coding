@@ -15,3 +15,6 @@ __pycache__
 *.tar.gz
 **/bin/**
 **/obj/**
+
+# fsharp ionide
+.fake
