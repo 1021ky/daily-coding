@@ -44,9 +44,9 @@ module Main =
         )
 // typeはpythonでのクラスに相当
 type MainWindow() =
-    inherit HostWindow()
-    do
-        base.Title <- "Counter Example"
+    inherit HostWindow() // 継承
+    do // コンストラクタの処理内容
+        base.Title <- "Counter Example" // baseで親クラスのメンバーにアクセス
         base.Content <- Main.view ()
 
 type App() =
