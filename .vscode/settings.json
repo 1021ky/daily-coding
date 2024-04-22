@@ -5,5 +5,8 @@
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": true,
     "go.useLanguageServer": false,
-    "go.formatTool": "gofmt"
+    "go.formatTool": "gofmt",
+    "dotnetAcquisitionExtension.existingDotnetPath": [
+        "/Users/ksanchu/.local/share/mise/installs/dotnet/8.0.101/./dotnet"
+    ]
 }
