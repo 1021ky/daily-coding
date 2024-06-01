@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "practice-micro-service"
+dynamic = ["version"]
+description = '書籍 実践マイクロサービスAPIの写経'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Keisuke Yamanaka", email = "2500024+1021ky@users.noreply.github.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+]
+
+[project.urls]
+Documentation = "https://github.com/Keisuke Yamanaka/practice-micro-service#readme"
+Issues = "https://github.com/Keisuke Yamanaka/practice-micro-service/issues"
+Source = "https://github.com/Keisuke Yamanaka/practice-micro-service"
+
+[tool.hatch.version]
+path = "src/practice_micro_service/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/practice_micro_service tests}"
+
+[tool.coverage.run]
+source_pkgs = ["practice_micro_service", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/practice_micro_service/__about__.py",
+]
+
+[tool.coverage.paths]
+practice_micro_service = ["src/practice_micro_service", "*/practice-micro-service/src/practice_micro_service"]
+tests = ["tests", "*/practice-micro-service/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.envs.default]
+installer = "uv"
