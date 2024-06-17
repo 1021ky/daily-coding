@@ -1,5 +1,7 @@
 # php に入門
 
+## インストール
+
 https://www.php.net/manual/ja/getting-started.php を読んでいく
 
 mac でインストールは https://www.php.net/manual/ja/install.macosx.php に書いてあった。
@@ -49,3 +51,16 @@ ksanchu@KeisukenoMacBook-Air 2024-06-17 %
 
 8.3.8 がインストールされた。
 
+## ドキュメント
+
+リファレンスはこれ。
+https://www.php.net/manual/ja/langref.php
+
+型をざっくり読んでいく。
+
+> PHP の 文字列 は、 int や float と解釈できる場合は 数値と見なされます。
+
+なんと。これはひっかかりそう
+
+
+文法を知るには、https://www.php.net/manual/ja/language.control-structures.php があった。
