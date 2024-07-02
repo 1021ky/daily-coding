@@ -1,0 +1,27 @@
+{
+  "name": "2024-07-02",
+  "version": "1.0.0",
+  "description": "jestをためす",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1021ky/daily-coding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1021ky/daily-coding/issues"
+  },
+  "homepage": "https://github.com/1021ky/daily-coding#readme",
+  "dependencies": {
+    "jest": "^29.7.0",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "ts-jest": "^29.1.5"
+  }
+}
