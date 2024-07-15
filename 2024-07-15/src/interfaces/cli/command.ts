@@ -10,11 +10,11 @@ export function parseCommandArgs(){
     .description('CLI to manage your todo')
     .version('0.0.1');
 
-    program.command("todo")
+    program.command("todo <name>")
     .description('manage your todo')
     .argument('<string>', 'task')
-    .command('add').action(()=>{
-        console.log("add");
+    .command('add').action((name)=>{
+        console.log("add", name);
     })
     .command('add').action(()=>{
         console.log("delete");
