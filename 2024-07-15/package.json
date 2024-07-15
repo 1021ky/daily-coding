@@ -1,11 +1,11 @@
 {
   "name": "2024-07-15",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/interfaces/cli/index.js",
   "scripts": {
     "start": "npm run build:live",
     "build": "tsc -p .",
-    "build:live": "nodemon --watch 'src/**/*.ts' --exec \"ts-node\" src/interfaces/cli/index.ts",
+    "build:live": "npx nodemon --watch 'src/**/*.ts' --exec 'npx ts-node -r tsconfig-paths/register src/interfaces/cli/index.ts'",
     "test": "jest"
   },
   "ts-jest": {
@@ -21,6 +21,7 @@
     "nodemon": "^3.1.4",
     "ts-jest": "^29.2.2",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.3"
   },
   "dependencies": {
@@ -59,6 +60,7 @@
     "collect-v8-coverage": "^1.0.2",
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
+    "commander": "^12.1.0",
     "concat-map": "^0.0.1",
     "convert-source-map": "^2.0.0",
     "create-jest": "^29.7.0",

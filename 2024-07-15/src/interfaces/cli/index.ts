@@ -1,4 +1,6 @@
+import {parseCommandArgs} from '@App/interfaces/cli/command'
+
 export function main(){
-    console.log("hello world");
+    parseCommandArgs();
 }
-main()
+main();

@@ -1,0 +1,13 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "ts,json",
+    "ignore": [
+        "node_modules"
+    ],
+    "exec": "npx ts-node -r tsconfig-paths/register src/interfaces/cli/index.ts",
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
