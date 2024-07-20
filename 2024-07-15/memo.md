@@ -5,8 +5,9 @@ npm init -y && \
  npm install --save-dev \
   typescript @types/node \
   ts-node nodemon \
+  tsconfig-paths \
   jest ts-jest @types/jest && \
- mkdir -p src/__tests__ lib && \
+ mkdir -p test lib && \
  npx tsc --init \
   --rootDir src \
   --outDir lib \
@@ -65,9 +66,35 @@ tsconfig.configに以下を追記。
     },
 ```
 
+nodemon.jsonを作成
+
+```json
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "ts-node src/interfaces/cli/index.ts"
+}
+```
+
+package.jsonに以下が足りない
+
+```json
+"main": "lib/interfaces/cli/index.js",
+```
+
+```json
+   "build:live": "npx nodemon --watch 'src/**/*.ts' --exec 'npx ts-node -r tsconfig-paths/register src/interfaces/cli/index.ts'",
+```
+
 ディレクトリ追加
 
 ```zsh
 ksanchu@KeisukenoMacBook-Air test % mkdir -p application/{commands,services} domain/{entities,value-objects,services} infrastructure/{config,repositories,utils} interfaces/{cli,web}
 ksanchu@KeisukenoMacBook-Air test %
+```
+
+以下で実行できた.
+
+```zsh
+npm run start todo add
 ```
