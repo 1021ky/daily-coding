@@ -1,3 +1,6 @@
+from operator import indexOf
+
+
 def search_linearly(key: int, search_list) -> int | None:
     """線形に探索する
 
@@ -45,5 +48,9 @@ if __name__ == "__main__":
         27,
     ]
     result = search_linearly(14, target)
+    assert result == 2
+    print(f"14 is in {result}")
+
+    result = indexOf(target, 14)
     assert result == 2
     print(f"14 is in {result}")
