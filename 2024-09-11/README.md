@@ -67,4 +67,13 @@ Unrecognized command "turbo:install" (Rails::Command::UnrecognizedCommandError)
 
 またエラー。
 
-続きはあした。
+続きはあした。と思ってコミットしようとしたら
+
+```zsh
+ksanchu@KeisukenoMacBook-Air 2024-09-11 % git add .
+error: '2024-09-11/helloworld/' does not have a commit checked out
+fatal: adding files failed
+ksanchu@KeisukenoMacBook-Air 2024-09-11 % rm
+```
+
+rails new {日付}でやるといいかも。
