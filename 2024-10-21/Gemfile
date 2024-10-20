@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem "rails"
+gem 'bootsnap' # Rubyコードの読み込みやパースをキャッシュし、再起動時のパフォーマンスを向上させるもの。rails newで必要だった
+gem 'importmap-rails' # RailsアプリでJavaScriptモジュールをインポートするためのGem.Webpackなどを使わないときに使う rails newで必要だった
