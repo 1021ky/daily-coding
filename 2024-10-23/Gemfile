@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# 7.2は変更が入ることが多いため安定してそうな１つ前の最新バージョンを選択
+gem 'rails', '~> 7.1', '>= 7.1.4.1'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
