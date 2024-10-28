@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_26_065256) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_26_080345) do
   create_table "follow_relations", force: :cascade do |t|
     t.integer "followee_id", null: false
     t.integer "follower_id", null: false
@@ -33,9 +33,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_26_065256) do
   create_table "user_authentications", force: :cascade do |t|
     t.integer "users_id", null: false
     t.string "hashed_password"
-    t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["users_id"], name: "index_user_authentications_on_users_id"
   end
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_26_065256) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email_address"
   end
 
   add_foreign_key "follow_relations", "user", column: "followee_id"
