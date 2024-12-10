@@ -18,9 +18,19 @@ def condition_and_assignment
     end
 end
 
+# 正式名はsafe navigation operator。日本語ではぼっち演算子
+def lonely_operator
+    a = 'foo'
+    # nilでない場合は通常通り
+    p a&.upcase
+    a = nil
+    # nilのときはnilになる（for nil (NoMethodError)にならない)
+    p a&.upcase
+end
 
 def run
     condition_and_assignment
+    lonely_operator
 end
 
 if __FILE__ == $0
