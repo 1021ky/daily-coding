@@ -1,5 +1,5 @@
 #
-# 実験用たまにnilを返す
+# 実験用.たまにnilを返す
 #
 # @return [<Type>] <description>
 #
@@ -17,7 +17,6 @@ def condition_and_assignment
         p 'nil..'
     end
 end
-
 
 
 def run
