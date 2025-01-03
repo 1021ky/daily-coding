@@ -8,5 +8,6 @@
     "go.formatTool": "gofmt",
     "dotnetAcquisitionExtension.existingDotnetPath": [
         "/Users/ksanchu/.local/share/mise/installs/dotnet/8.0.101/./dotnet"
-    ]
+    ],
+    "rubyLsp.formatter": "rubocop"
 }
