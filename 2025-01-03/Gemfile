@@ -4,4 +4,11 @@ source "https://rubygems.org"
 
 # gem "rails"
 
-gem "minitest", "~> 5.25"
+group :development, :test do
+  gem "minitest", "~> 5.25"
+end
+
+group :development do
+  gem 'debug'
+  gem 'rubocop'
+end
