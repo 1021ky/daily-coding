@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './pokeapi_client'
 
 def main
@@ -5,6 +7,4 @@ def main
   pp client.get_generations
 end
 
-if __FILE__ == $0
-  main()
-end
+main if __FILE__ == $PROGRAM_NAME
