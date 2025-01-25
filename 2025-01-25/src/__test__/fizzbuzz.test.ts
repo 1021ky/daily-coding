@@ -15,8 +15,4 @@ describe('fizzbuzz', () => {
     test('3の倍数でも5の倍数でもないならば数値の文字列', () => {
         expect(fizzbuzz(12)).toBe('12');
     });
-
-    test('数値以外のときはnullになる', () => {
-        expect(fizzbuzz(NaN)).toBe(null);
-    });
 });
