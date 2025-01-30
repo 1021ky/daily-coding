@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+# gem "rails"
+
+gem 'rspec', '~> 3.13'
+gem 'rspec-mocks', '~> 3.13'
+
+gem 'faraday', '~> 2.12'
+
+gem 'rubocop', '~> 1.71'
