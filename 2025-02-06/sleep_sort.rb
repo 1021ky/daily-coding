@@ -22,7 +22,7 @@ def sleep_sort target
 end
 
 if __FILE__ == $0
-  p '期待通り動く'
+  p '期待通り動く(※そもそもRDocに沿えばIntegerしか期待通りに動かないが)'
   target = (0.01..0.30).step(0.01).to_a.sample(30)
   p "before sort:#{target}"
   p sleep_sort(target)
