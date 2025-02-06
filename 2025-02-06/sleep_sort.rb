@@ -1,9 +1,9 @@
 #
 # 引数の配列を昇順にソートする
 #
-# @param [Array[Integer]] target 配列
+# @param [Array<Integer>] target 配列
 #
-# @return [<Array>] ソート結果
+# @return [Array<Integer>] ソート結果
 #
 def sleep_sort target
   ractors = target.map do |t|
