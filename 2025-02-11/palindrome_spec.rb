@@ -17,7 +17,7 @@ describe "palindrome" do
         expected: false },
     ].each do |test_case|
       it (test_case[:ctx]).to_s do
-        expect(palindrome?(test_case[:target])).to_be test_case[:expected]
+        _(palindrome?(test_case[:target])).must_equal test_case[:expected]
       end
     end
 end
