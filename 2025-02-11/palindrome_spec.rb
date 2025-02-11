@@ -1,5 +1,4 @@
-require 'minitest/autoload'
-
+require 'minitest/autorun'
 require './palindrome'
 
 describe "palindrome" do
