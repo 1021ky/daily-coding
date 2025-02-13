@@ -22,3 +22,13 @@ app/uiにfonts.tsを追加
 どのsubsetを使うか、コードで指定する。subsetは利用するフォントの集合っぽい。
 
 適用したいlayoutで適用する。/app/layout.tsx
+
+### Practice: Adding a secondary font
+
+組み込めるフォントは1つだけではなく、特定要素のために別のフォントを使えるようにすることができる。
+
+フォントで指定できるオプションは、google fontのページでは、検索して、そのページで調べられる。
+Lusitanaの場合、 <https://fonts.google.com/specimen/Lusitana?query=Lusitana>
+RegularとBoldがある
+
+Primary fontのときと同様に、fonts.tsに追加し、今回は、部分適用したいため、適用したいpage.tsxを修正する。
