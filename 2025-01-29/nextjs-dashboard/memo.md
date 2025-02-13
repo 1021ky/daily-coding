@@ -33,7 +33,7 @@ RegularとBoldがある
 
 Primary fontのときと同様に、fonts.tsに追加し、今回は、部分適用したいため、適用したいpage.tsxを修正する
 
-ロゴもフォンと指定ができる
+ロゴもフォント指定ができる
 
 ```tsx
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
@@ -51,5 +51,3 @@ export default function AcmeLogo() {
 }
 
 ```
-
-。
