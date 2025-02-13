@@ -51,3 +51,16 @@ export default function AcmeLogo() {
 }
 
 ```
+
+### Why optimize images?
+
+Next.jsでは、静的コンテンツを返せる。
+/publicディレクトリに置くと、そのままアクセスできるし、アプリケーション内でも参照できる。
+
+素のHTMLならばimgタグで表示できるが、それだと画像表示のときのレイアウトシフトが発生する。デバイスごとの画像サイズ指定も必要になる。
+
+ということで、Imageコンポーネントを使う。
+
+Imageコンポーネントには、表示条件をclassNameで設定できる。
+"hidden md:block"ならば、通常は非表示で、ミドルサイズ以上blockが適応→表示になる
+"hidden md:hidden"ならば、通常は非表示で、ミドルサイズ以上だと、hiddenクラスが適応→非表示になる
