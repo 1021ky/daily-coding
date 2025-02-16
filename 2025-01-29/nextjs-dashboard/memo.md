@@ -64,3 +64,29 @@ Next.jsでは、静的コンテンツを返せる。
 Imageコンポーネントには、表示条件をclassNameで設定できる。
 "hidden md:block"ならば、通常は非表示で、ミドルサイズ以上blockが適応→表示になる
 "hidden md:hidden"ならば、通常は非表示で、ミドルサイズ以上だと、hiddenクラスが適応→非表示になる
+
+## Chapter 4
+
+### Nested routing
+
+NextJSでコーディングするときは、コンポーネントはReact使う。
+ルーティングはNextJSが管理する。
+
+ルーティングは、ディレクトリの構成からパスごとにアクセスされるファイルが決まる。
+
+### Creating the dashboard page
+
+まずは、app/pages/dashboard/page.tsxを作成する。
+
+```tsx
+export default function Page() {
+    return <p>Dashboard Page</p>;
+}
+```
+
+これだけだと、<http://localhost:3000/dashboardにアクセスすると、Dashboard> Pageと表示されるのみ。
+ただ、これで、page.tsxを表示させたいパスと一致するディレクトリにおけば表示されるようになることはわかった。
+
+> By having a special name for page files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the page file will be publicly accessible. For example, the /ui and /lib folders are colocated inside the /app folder along with your routes.
+
+page.tsxとか特定の名前にすると、テストコードや関係するコードやテストコードもおける。ただし、公開されるのはpageファイルの中身だけ。
