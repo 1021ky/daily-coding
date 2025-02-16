@@ -90,3 +90,33 @@ export default function Page() {
 > By having a special name for page files, Next.js allows you to colocate UI components, test files, and other related code with your routes. Only the content inside the page file will be publicly accessible. For example, the /ui and /lib folders are colocated inside the /app folder along with your routes.
 
 page.tsxとか特定の名前にすると、テストコードや関係するコードやテストコードもおける。ただし、公開されるのはpageファイルの中身だけ。
+
+### Creating the dashboard layout
+
+複数のページで共通のレイアウトを定義できる。
+
+```dotnetcli
+app/dashboard
+├── layout.tsx
+├── customers
+├── invoices
+└── page.tsx
+```
+
+このように定義していると、layout.tsxが、customers/page.tsxやinvoices/page.tsxに適用される。
+
+<http://localhost:3000/dashboard> にアクセスするとサイドバーが表示された。
+
+dashboard/customersでも同様にサイドバーが表示された。
+
+> One benefit of using layouts in Next.js is that on navigation, only the page components update while the layout won't re-render. This is called partial rendering which preserves client-side React state in the layout when transitioning between pages.
+
+Nextjsのレイアウト機能の強みとして、partial renderingがある。
+これは、ページ全体の共通部分は1回だけ表示されて、それ以降は変わる部分だけ更新される。
+これにより、ユーザーインターフェースの状態（入力や選択）が保持される。
+
+Chapter3で修正した、app/layout.tsxはRoot Layoutと呼ばれる。アプリ全体で表示されるレイアウト。
+
+> Any UI you add to the root layout will be shared across all pages in your application. You can use the root layout to modify your <html> and <body> tags, and add metadata (you'll learn more about metadata in a later chapter).
+
+全体に適用したい、html bodyへの変更やメタデータの定義はここで行う。（Sentryとか、ログとか、Google Analyticsとか全体で使いたいものの初期化処理とかかな？）
