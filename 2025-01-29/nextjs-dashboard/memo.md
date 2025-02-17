@@ -120,3 +120,14 @@ Chapter3で修正した、app/layout.tsxはRoot Layoutと呼ばれる。アプ�
 > Any UI you add to the root layout will be shared across all pages in your application. You can use the root layout to modify your <html> and <body> tags, and add metadata (you'll learn more about metadata in a later chapter).
 
 全体に適用したい、html bodyへの変更やメタデータの定義はここで行う。（Sentryとか、ログとか、Google Analyticsとか全体で使いたいものの初期化処理とかかな？）
+
+### Navigating Between Pages
+
+#### The <Link> component
+
+ページ間リンクを作りたいとき、htmlならばaタグを使う。
+そうすると、side menuでaタグを使ってリンクを書いて、メインの方のページ遷移をするときも、フルリフレッシュになる。
+
+Linkコンポーネントを使うと、フルリフレッシュされなくなる。
+
+#### Automatic code-splitting and prefetching
