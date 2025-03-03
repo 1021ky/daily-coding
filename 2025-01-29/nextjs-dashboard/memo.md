@@ -148,3 +148,14 @@ usePathname()で現在のパスを取得できる。
 今回はpath名をとって
 import clsx from 'clsx';
 をつかって、特定条件にあうところを、cssを操作するclsxを使って、表示を変えた。
+
+#### local storage
+
+<https://zenn.dev/hayato94087/books/94bf9a15a98684/viewer/g010rrcqqy7l5rh7#supabase-%E3%82%92%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E8%B5%B7%E5%8B%95> を参考にローカルでDBをたてていく。
+
+チュートリアルには、Vercelのサービスを使っているが、今回はSupabaseを使う。
+
+ 4857  pnpm add supabase@latest
+ 4858  pnpm supabase start
+
+を実行した
