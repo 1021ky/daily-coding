@@ -2,11 +2,11 @@ def daily_dir_name
   Time.now.strftime('%Y-%m-%d')
 end
 
-def make_daily_dir
+def make_daily_dir dir_name
   Dir.mkdir(daily_dir_name)
 end
 
-def is_dir_exist?
+def is_dir_exist? dir_name
   Dir.exist?(daily_dir_name)
 end
 
@@ -15,10 +15,10 @@ end
 #
 def main
   dir_name = daily_dir_name
-  if is_dir_exist?
+  if is_dir_exist? dir_name
     puts "#{dir_name} already exists."
   else
-    make_daily_dir
+    make_daily_dir dir_name
   end
 end
 
