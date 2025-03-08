@@ -3,7 +3,7 @@ def daily_dir_name
 end
 
 def make_daily_dir
-  Dir.mkdir('2025-03-07')
+  Dir.mkdir(daily_dir_name)
 end
 
 def is_dir_exist?
