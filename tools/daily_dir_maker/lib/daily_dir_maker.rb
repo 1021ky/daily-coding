@@ -15,7 +15,7 @@ def make_dir(name:)
 end
 
 def directory_name
-  Time.now.strftime('%Y%m%d')
+  Time.now.strftime('%Y-%m-%d')
 end
 
 def already_exists_msg(name:)
