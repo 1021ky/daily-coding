@@ -35,7 +35,7 @@ def print_success_msg(msg:)
   puts msg
 end
 
-def make_daily_dir
+def make
   name = directory_name
   if check_dir_exists(name:)
     msg = already_exists_msg(name:)

@@ -3,4 +3,4 @@
 
 require_relative "../lib/daily_dir_maker.rb"
 
-puts DailyDirMaker.run
+puts DailyDirMaker.make
