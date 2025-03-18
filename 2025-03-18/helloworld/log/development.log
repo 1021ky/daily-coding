@@ -1,0 +1,112 @@
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Helloworld'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Helloworld'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Helloworld'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-03-18 23:20:24.999841', '2025-03-18 23:20:24.999842') RETURNING "key" /*application='Helloworld'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Helloworld'*/[0m
+Migrating to CreateProducts (20250318231955)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Helloworld'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Helloworld'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250318231955') RETURNING "version" /*application='Helloworld'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Helloworld'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Helloworld'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-03-19 08:29:21 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Helloworld'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ksanchu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ksanchu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 5.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:29:28 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 21ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/product" for 127.0.0.1 at 2025-03-19 08:29:35 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/product"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-03-19 08:29:35 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:30:13 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:30:16 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:30:18 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:30:21 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-03-19 08:31:40 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Helloworld'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ksanchu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ksanchu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:44 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 11ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:48 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:48 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:48 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:49 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:49 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:49 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:31:49 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:32:19 +0900
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-03-19 08:32:57 +0900
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (7.0ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Helloworld',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 2.1ms | ActiveRecord: 8.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
