@@ -8,7 +8,7 @@ module DailyDirMaker
     name = directory_name
     if check_dir_exists(name:)
       msg = already_exists_msg(name:)
-      print_error_msg(msg:)
+      print_error_msg(std_msg: name, err_msg: msg)
     else
       make_dir(name:)
       msg = success_msg(directory_name: name)
@@ -35,8 +35,9 @@ module DailyDirMaker
     "#{name} already exists."
   end
 
-  def self.print_error_msg(msg:)
-    warn msg
+  def self.print_error_msg(std_msg:, err_msg:)
+    warn err_msg
+    puts std_msg
   end
 
   def self.success_msg(directory_name:)

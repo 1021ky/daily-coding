@@ -17,6 +17,15 @@ describe DailyDirMaker do
       dirs = Dir.children('.')
       _(dirs).must_include "2025-03-12"
     end
+    it "標準出力で作成されたディレクトリ名が出力されること" do
+      stdout, _stderr = capture_io do
+        Time.stub(:now, Time.new(2025, 3, 13)) do
+          DailyDirMaker.make
+        end
+      end
+      _(stdout).must_equal "2025-03-13\n"
+    end
+
   end
 
   describe "既にディレクトリが作成されていた場合" do
@@ -34,6 +43,21 @@ describe DailyDirMaker do
         end
       end
       _(stderr).must_equal "2025-03-13 already exists.\n"
+    end
+
+    before 'ディレクトリを作成する' do
+      Dir.mkdir target_dir
+    end
+    after 'ディレクトリを削除する' do
+      Dir.delete target_dir
+    end
+    it "ディレクトリが既に作成されていても標準出力でディレクトリ名は出力されること" do
+      stdout, _stderr = capture_io do
+        Time.stub(:now, Time.new(2025, 3, 13)) do
+          DailyDirMaker.make
+        end
+      end
+      _(stdout).must_equal "2025-03-13\n"
     end
   end
 end
