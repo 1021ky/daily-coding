@@ -37,8 +37,10 @@ Cargo.lock
 
 # Ruby on Rails
 **/vendor/bundle/**
+**/.kamal/**
 
 # 使い捨ての練習コードなのでGitHub Actionsは実行しない
 **/.github/**
 
 **/tmp/**
+
