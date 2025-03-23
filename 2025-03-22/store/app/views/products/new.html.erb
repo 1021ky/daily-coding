@@ -1,0 +1,13 @@
+<h1>New product</h1>
+
+<%# form_withを使うことで、CSRFトークンを作成して、モデルに合わせt、submitボタンの名前修正などいい感じにしてくれる %>
+<%= form_with model: @product do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
