@@ -1,4 +1,9 @@
-<h1><%= @product.name %></h1>
+<% cache @product do %>
+  <%# $ bin/rails dev:cacheを実行すると開発環境でもキャッシュが有効化 %>
+  <%#  Rails also changes the cache key when records are updated to ensure that it never renders stale cache data.
+  とのことなので、頻繁に書き換わらない部分ならば、cacheしておくと、速い %>
+  <h1><%= @product.name %></h1>
+<% end %>
 
 <%= link_to "Back", products_path %>
 <% if authenticated? %>
@@ -9,3 +14,4 @@
 <%= link_to "Login", new_session_path unless authenticated? %>
 
 <%# The turbo_confirm data attribute tells the Turbo JavaScript library to ask the user to confirm before submitting the form. We'll dig more into that shortly. %>
+
