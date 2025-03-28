@@ -1,8 +1,8 @@
 <%# 外でも使える部品を定義 %>
 <%= form_with model: product do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.rich_text_area :description %>
   </div>
 
   <div>
