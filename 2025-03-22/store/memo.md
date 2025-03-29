@@ -60,4 +60,23 @@ Use `bundle info [gemname]` to see where a bundled gem is installed.
 get statedだからかもしれないが、Product Modelにhas_rich_textってなんか違和感。
 ProductTextみたいなモデルを作って、has_one :product_textみたいな感じにしないと、表示に関することがビジネスロジックも入るModelで記述されて、表示の変更にProductモデルを変更することになるのが、責務を分けるという観点からは良くないと思う。
 
-```ruby
+## action textで追加でやったこと
+
+get started通りにやったが、表示がおかしい。
+chatgptいわく、このファイルがあるはずという。
+ app/javascript/packs/application.js
+しかし、ない。
+
+どうやらそもそも必要なコマンドを叩けてないようだった。
+webpackerかimportmapを使って設定が必要とのこと。
+rails8はimportmapがデフォルトで入っているので、importmapを使うことにする。
+
+```zsh
+bin/rails importmap:install
+bundle install --quiet
+```
+
+config/importmap.rbと、application.js作成されたため、修正。
+
+せっかくなので、issueを立てた。
+<https://github.com/rails/rails/issues/54831>
