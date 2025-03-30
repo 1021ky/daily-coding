@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   private
     def product_params
       # Strong Parameterでバリデーション
-      params.expect(product: [ :name, :description ])
+      params.expect(product: [ :name, :description, :featured_image ])
     end
 
     def set_product
