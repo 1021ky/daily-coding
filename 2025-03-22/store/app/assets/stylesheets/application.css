@@ -3,3 +3,8 @@
  *= require trix
  *= require actiontext
  */
+
+.product-featured-image {
+    max-width: 400px;
+    height: auto;
+}
