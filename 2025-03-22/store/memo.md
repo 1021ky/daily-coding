@@ -80,3 +80,10 @@ config/importmap.rbと、application.js作成されたため、修正。
 
 せっかくなので、issueを立てた。
 <https://github.com/rails/rails/issues/54831>
+
+## その他
+
+GitHub用のCIは.github以下で用意されている。
+rubocop/brakemanで静的解析できるようできるようになっている。
+kamalでデプロイもできる。
+本当に開発で必要なものが揃っている。
