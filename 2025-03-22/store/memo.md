@@ -87,3 +87,28 @@ GitHub用のCIは.github以下で用意されている。
 rubocop/brakemanで静的解析できるようできるようになっている。
 kamalでデプロイもできる。
 本当に開発で必要なものが揃っている。
+
+## ActiveRecordBasics
+
+<https://guides.rubyonrails.org/active_record_basics.html>
+
+を見ながら。
+
+ジェネレーターの基本コマンド。
+
+```zsh
+~/gh/g/1/daily-coding/2025-04-08/store main *7 !4 ?12
+❯ bin/rails generate migration CreateBooks title:string author:string
+
+      invoke  active_record
+      create    db/migrate/20250408144753_create_books.rb
+~/gh/g/1/daily-coding/2025-04-08/store main *7 !4 ?12
+❯ bundle exec rails db:migrate
+== 20250408144753 CreateBooks: migrating ======================================
+-- create_table(:books)
+   -> 0.0018s
+== 20250408144753 CreateBooks: migrated (0.0018s) =============================
+
+~/gh/g/1/daily-coding/2025-04-08/store main *7 !5 ?12
+❯
+```
