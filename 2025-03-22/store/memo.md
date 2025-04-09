@@ -112,3 +112,9 @@ kamalでデプロイもできる。
 ~/gh/g/1/daily-coding/2025-04-08/store main *7 !5 ?12
 ❯
 ```
+
+名前付きのモデルを作るときは、継承クラスを指定するときと同じ用に書く
+
+```zsh
+bin/rails generate model Book::Order
+```
