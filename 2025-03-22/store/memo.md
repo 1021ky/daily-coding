@@ -118,3 +118,51 @@ kamalでデプロイもできる。
 ```zsh
 bin/rails generate model Book::Order
 ```
+
+### データベースのカラムにもいろいろ設定できる
+
+```
+There are also some optional column names that will add additional features to Active Record instances:
+
+created_at - Automatically gets set to the current date and time when the record is first created.
+updated_at - Automatically gets set to the current date and time whenever the record is created or updated.
+lock_version - Adds optimistic locking to a model.
+type - Specifies that the model uses Single Table Inheritance.
+(association_name)_type - Stores the type for polymorphic associations.
+(table_name)_count - Used to cache the number of belonging objects on associations. For example, if Articles have many Comments, a comments_count column in the articles table will cache the number of existing comments for each article.
+```
+
+### Database Create
+
+```
+book = Book.new do |b|
+  b.title = "Metaprogramming Ruby 2"
+  b.author = "Paolo Perrotta"
+end
+
+book.save
+```
+
+こういうふうにブロックでもかける。
+引数にいれるよりも見やすいな。
+
+### Database Read
+
+```
+store(dev)> Product.take
+  Product Load (9.2ms)  SELECT "products".* FROM "products" LIMIT 1 /*application='Store'*/
+=>
+#<Product:0x000000012cdb25b8
+ id: 3,
+ name: "ballpen",
+ created_at: "2025-03-22 13:51:35.285401000 +0000",
+ updated_at: "2025-03-22 13:51:35.285401000 +0000">
+store(dev)>
+
+
+```
+
+first lastしか使っていなかったが、takeもある。
+
+`SELECT "products".* FROM "books" LIMIT ?  [["LIMIT", 1]]`
+が発行される。
