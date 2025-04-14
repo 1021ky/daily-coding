@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :subscribers, only: [ :create ]
   end
   resource :unsubscribe, only: [ :show ]
+  resources :books
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
