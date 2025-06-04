@@ -7,3 +7,6 @@ const a = {}
 const b = {}
 console.log(a === a);
 console.log(a === b); // 別オブジェクトなので、false
+// 厳密不等価演算子 異なる型、または異なる値ならばtrue
+console.log('1' === 1); // 型が違うためtrue
+console.log(1 === 1); // 同じ型で同じ値なのでfalse
