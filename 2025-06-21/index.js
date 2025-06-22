@@ -26,3 +26,11 @@ console.log(fnReturnsUndefined()); // => undefined
 // const a = if (true) {
 //     console.log("This is a statement, not an expression.");
 // }
+
+// 関数宣言文
+function exampleFunction() {
+} // こちらは文なのでセミコロンは不要
+const exampleFunction1 = exampleFunction; // 宣言された関数オブジェクトは変数に代入できる
+// 無名関数は、関数式を変数に代入している。
+const exampleFunction2 = function () {
+}; // こちらは式なのでセミコロンが必要
