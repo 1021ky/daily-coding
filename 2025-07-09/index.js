@@ -54,3 +54,33 @@ class Child extends Parent {}
 
 }
 
+// 継承時に同名ならば上書きされる。参照したいときはsuperを使う
+{
+    class Parent {
+        field = "parent field";
+        constructor() {
+            this.instanceField = "parent instance field";
+        }
+        get foo() {
+            return 'parent foo';
+        }
+    }
+    class Child extends Parent {
+        field = "child field";
+        constructor() {
+            super();
+            this.instanceField = "child instance field";
+        }
+        get foo() {
+            return super.foo + ', ' + 'child foo';
+        }
+    }
+    const parent = new Parent();
+    const child = new Child();
+    assert(parent.field === "parent field");
+    assert(child.field === "child field");
+    assert(parent.instanceField === "parent instance field");
+    assert(child.instanceField === "child instance field");
+    assert(parent.foo === "parent foo");
+    assert(child.foo === "parent foo, child foo");
+}
