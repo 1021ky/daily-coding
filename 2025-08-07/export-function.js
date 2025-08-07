@@ -1,0 +1,1 @@
+export function barFunc() { console.log('barFunc') }
