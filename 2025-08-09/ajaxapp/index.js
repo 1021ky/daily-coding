@@ -1,29 +1,44 @@
-let userInfo = null;
+async function main() {
+    try {
+        const userId = getUserId();
+        const userInfo = await fetchUserInfo(userId);
+        const view = createView(userInfo);
+        displayView(view);
+    } catch (error) {
+        console.error(`エラーが発生しました: ${error}`);
+    }
+    // Promiseチェーンを使用した場合
+    // fetchUserInfo("js-primer-example")
+    //     .then((userInfo) => createView(userInfo))
+    //     .then((view) => displayView(view))
+    //     .catch(error => {
+    //         console.error(`エラーが発生しました: ${error}`);
+    //     });
+}
+
+/**
+ * userIdに入力された値を取得する
+ * @returns 入力された値
+ */
+function getUserId() {
+    return document.getElementById("userId").value;
+}
+
 /**
  * 指定されたユーザーIDに基づいてGitHubユーザー情報を取得する
  * @param {*} userId
  */
 function fetchUserInfo(userId) {
-    fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
+    return fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
         .then(response => {
-            // エラーレスポンスが返されたことを検知する
             if (!response.ok) {
-                console.error("エラーレスポンス", response);
+                console.log("fooo");
+                return Promise.reject(new Error(`${response.status}: ${response.statusText}`));
             } else {
-                return response.json().then(data => {
-                    userInfo = {
-                        name: data.name,
-                        login: data.login,
-                        avatar_url: data.avatar_url,
-                        location: data.location,
-                        public_repos: data.public_repos
-                    };
-                    displayUserInfo();
-
-                });
+                return response.json();
             }
         }).catch(error => {
-            console.error(error);
+            return Promise.reject(new Error(`ユーザー情報の取得に失敗しました: (id: ${userId}) info`, { cause: error }));
         });
 }
 
@@ -65,20 +80,27 @@ function escapeHTML(strings, ...values) {
 }
 
 /**
+ * ビューを作成する
+ * @param {*} userInfo
+ * @returns 作成されたHTML文字列
+ */
+function createView(userInfo) {
+    return escapeHTML`
+                <h4>${userInfo.name} (@${userInfo.login})</h4>
+                    <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
+                        <dl>
+                            <dt>Location</dt>
+                            <dd>${userInfo.location}</dd>
+                            <dt>Repositories</dt>
+                            <dd>${userInfo.public_repos}</dd>
+                        </dl>
+                        `;
+}
+
+/**
  * ユーザー情報を表示する
  */
-function displayUserInfo() {
-    const view = escapeHTML`
-            <h4>${userInfo.name} (@${userInfo.login})</h4>
-            <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
-            <dl>
-                <dt>Location</dt>
-                <dd>${userInfo.location}</dd>
-                <dt>Repositories</dt>
-                <dd>${userInfo.public_repos}</dd>
-            </dl>
-        `;
-
+function displayView(view) {
     const result = document.getElementById("result");
     result.innerHTML = view;
 }
