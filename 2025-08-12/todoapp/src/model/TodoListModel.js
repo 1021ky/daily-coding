@@ -31,7 +31,11 @@ export class TodoListModel extends EventEmitter {
      * @param {Function} listener
      */
     onChange(listener) {
-        this.addEventListener("change", listener);
+        return this.addEventListener("change", listener);
+    }
+
+    offChange(listener) {
+        this.removeEventListener("change", listener);
     }
 
     /**
@@ -40,6 +44,7 @@ export class TodoListModel extends EventEmitter {
     emitChange() {
         this.emit("change");
     }
+
 
     /**
      * TodoItemを追加する

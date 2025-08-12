@@ -13,6 +13,13 @@ export class EventEmitter {
         }
         const listenerSet = this.#listeners.get(type);
         listenerSet.add(listener);
+        return () => {
+            // 解除関数を返す
+            listenerSet.delete(listener);
+            if (listenerSet.size === 0) {
+                this.#listeners.delete(type);
+            }
+        };
     }
 
     /**

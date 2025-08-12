@@ -7,6 +7,10 @@ export class App {
     #todoListView = new TodoListView();
     #todoListModel = new TodoListModel();
 
+    // リスナーを管理するための変数
+    #unsubscribeChange = null;
+    #abortController = null;
+
     /**
      * Todoを追加するときに呼ばれるリスナー関数
      * @param {string} title
@@ -32,11 +36,15 @@ export class App {
     }
 
     mount() {
+        this.#abortController = new AbortController();// ビルトインのAbortControllerを使用。httpのfetchを中断したりするのに使える
+        const { signal } = this.#abortController;
+
         const formElement = document.querySelector("#js-form");
         const inputElement = document.querySelector("#js-form-input");
         const todoItemCountElement = document.querySelector("#js-todo-count");
         const containerElement = document.querySelector("#js-todo-list");
-        this.#todoListModel.onChange(() => {
+
+        this.#unsubscribeChange = this.#todoListModel.onChange(() => {
             const todoItems = this.#todoListModel.getTodoItems();
             const todoListElement = this.#todoListView.createElement(todoItems, {
                 // Appに定義したリスナー関数を呼び出す
@@ -55,6 +63,13 @@ export class App {
             event.preventDefault();
             this.handleAdd(inputElement.value);
             inputElement.value = "";
-        });
+        }, { signal });
+    }
+
+    unmount() {
+        this.#unsubscribeChange?.();
+        this.#unsubscribeChange = null;
+        this.#abortController?.abort();
+        this.#abortController = null;
     }
 }
