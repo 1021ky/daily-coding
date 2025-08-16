@@ -1,0 +1,9 @@
+<h1>TodoItems#index</h1>
+
+<div id="todo-items">
+  <ul>
+    <% @todo_items.each do |item| %>
+      <li><%= item.name %> (Order: <%= item.order %>)</li>
+    <% end %>
+  </ul>
+</div>
