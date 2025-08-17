@@ -1,0 +1,7 @@
+<h1>TODO</h1>
+
+<%= render "form", todo: @todo %>
+
+<ul id="todos" style="padding-left: 1rem;">
+ <%= render partial: "todo_list/todo", collection: @todos, as: :todo %>
+</ul>

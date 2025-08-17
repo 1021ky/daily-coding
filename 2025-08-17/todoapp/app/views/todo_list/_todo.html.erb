@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(todo) do %>
+  <li style="margin: .5rem 0;">
+    <%= form_with model: todo, url: todo_path(todo), method: :patch, data: { controller: "autosubmit" } do |f| %>
+      <label>
+        <%= f.check_box :completed, checked: todo.completed, data: { action: "change->autosubmit#submit" } %>
+        <strong><%= h todo.title %></strong>
+      </label>
+      <% if todo.description.present? %>
+        <div><%= simple_format h(todo.description) %></div>
+      <% end %>
+    <% end %>
+
+    <div style="margin-top:.25rem;">
+      <%= button_to "削除", todo_path(todo), method: :delete,
+            form: { data: { turbo_confirm: "削除しますか？" } } %>
+    </div>
+  </li>
+<% end %>
