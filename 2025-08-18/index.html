@@ -1,0 +1,36 @@
+<html>
+<!-- https://nextjs.org/learn/react-foundations/updating-ui-with-javascriptから -->
+
+<body>
+    <div id="app"></div>
+    <!-- bodyタグの中でDOM操作するスクリプトを定義しておくと、読み込まれて実行される -->
+
+    <!-- imperative programming -->
+    <!-- <script type="text/javascript">
+        const app = document.getElementById('app');
+        const header = document.createElement('h1');
+        const text = 'Develop. Preview. Ship.';
+        const headerContent = document.createTextNode(text);
+        header.appendChild(headerContent);
+        app.appendChild(header);
+    </script> -->
+
+    <!-- declarative programming -->
+    <!-- Reactによって宣言的にかける -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- JSXを利用するためにBabelを読み込む。 -->
+    <!-- JSXがないと、root.renderの引数には「React要素（React Element）」をJavaScriptで生成して渡す必要がある。 -->
+    <script type="text/jsx">
+        const app = document.getElementById('app');
+        const root = ReactDOM.createRoot(app);
+        root.render(<h1>Develop. Preview. Ship.</h1>); // JSXを利用。
+    </script>
+</body>
+
+<!-- memo -->
+<!-- React（やJSX変換後の関数呼び出し）がReactElement(実行時に存在する「仮想DOMオブジェクト」)を作る -->
+<!-- JSXはReactElementを生成するJSコードへ変換される -->
+<!-- <script type="text/jsx">と指定していたら、babelがコンパイルして、<h1>Develop. Preview. Ship.</h1>をReactElementを生成するJSコードにしている？ -->
+
+</html>
