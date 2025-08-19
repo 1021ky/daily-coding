@@ -1,0 +1,56 @@
+<html>
+<!-- https://nextjs.org/learn/react-foundations/displaying-data-with-props から -->
+
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+function HomePage() {
+    const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+    // 再利用可能なので以下のようにHeaderを2つ引数を変えて配置できる
+    // JSで配列もループで回せるが、要素を生成するときはkeyがないと警告(Warning: Each child in a list should have a unique "key" prop.)が出る。
+  return (
+    <div>
+      <Header title="React" />
+      <Header title="A new title" />
+      <ul>
+        {names.map((name) => (
+          <li key={name}>{name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/**
+ function Header(props) {
+    console.log(props); // -> { title: "React" }
+  return <h1>Develop. Preview. Ship.</h1>;
+} */
+
+// 動作は上と同じだが、分割代入でタイトルを取得する。
+function Header({title}) {
+  if (title) {
+    return <h1>{`Cool ${title}`}</h1>;
+  } else {
+    return 'Default title';
+  }
+}
+
+const root = ReactDOM.createRoot(app);
+root.render(<HomePage />);
+
+    </script>
+</body>
+
+<!--
+memo
+
+
+-->
+
+
+</html>
