@@ -45,3 +45,5 @@ Cargo.lock
 
 **/tmp/**
 
+# NextJS
+**/.next/**
