@@ -35,6 +35,9 @@ Cargo.lock
 # npm
 **/node_modules/**
 
+# pnpm
+**/.pnpm-store/**
+
 # Ruby on Rails
 **/vendor/bundle/**
 **/.kamal/**
