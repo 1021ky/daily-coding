@@ -1,0 +1,23 @@
+{
+  "name": "daily-coding-2025-09-07",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "pnpm build && pnpm start",
+    "test": "jest",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.1",
+    "jest": "^30.1.3",
+    "pnpm": "^10.15.1",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  },
+  "include": [
+    "app"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.15.1"
+}
