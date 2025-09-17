@@ -1,0 +1,26 @@
+{
+  "name": "2025-09-17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.16.1",
+  "type": "module",
+  "dependencies": {
+    "@auth/unstorage-adapter": "^2.10.0",
+    "@vercel/kv": "^3.0.0",
+    "next-auth": "^4.24.11",
+    "unstorage": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.1",
+    "typescript": "^5.9.2"
+  }
+}
