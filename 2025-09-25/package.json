@@ -1,0 +1,33 @@
+{
+  "name": "2025-09-25",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node -r module-alias/register dist/index.js",
+    "dev": "pnpm build && pnpm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
+    "@types/node": "^24.5.2",
+    "@types/oauth": "^0.9.6",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "module-alias": "^2.2.3",
+    "oauth": "^0.10.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
+  }
+}
