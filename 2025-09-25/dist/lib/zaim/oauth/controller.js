@@ -4,10 +4,14 @@ exports.handlePostRequestToken = handlePostRequestToken;
 exports.handlePostAccessToken = handlePostAccessToken;
 const authorization_1 = require("@/lib/zaim/oauth/authorization");
 async function handlePostRequestToken(req, res) {
+    console.log(`req.session.id:`, req.session.id);
+    console.log(`handlePostRequestToken called`);
+    console.log(`handlePostRequestToken called with session:`, req.session);
     try {
         const session = req.session;
         const authorizeUrl = await (0, authorization_1.createAuthorizeUrl)(session);
         await saveSession(session);
+        console.log(`req.session.id:`, req.session.id);
         res.redirect(authorizeUrl);
     }
     catch (err) {
@@ -16,6 +20,9 @@ async function handlePostRequestToken(req, res) {
     }
 }
 async function handlePostAccessToken(req, res) {
+    console.log(`req.session.id:`, req.session.id);
+    console.log(`handlePostRequestToken called`);
+    console.log(`handlePostRequestToken called with session:`, req.session);
     console.log(`handlePostAccessToken called with query:`, req.query);
     console.log(`handlePostAccessToken called with session:`, req.session);
     try {

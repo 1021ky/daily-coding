@@ -10,7 +10,8 @@ const ZAIM_AUTH_AUTHORIZE_URL = process.env.ZAIM_AUTH_AUTHORIZE_URL;
  */
 async function createAuthorizeUrl(session) {
     return new Promise((resolve, reject) => {
-        api_client_1.zaimOAuthClient.getOAuthRequestToken({ oauth_callback: process.env.ZAIM_CALLBACK_URL }, (err, token, secret) => {
+        api_client_1.zaimOAuthClient.getOAuthRequestToken({ callback: process.env.ZAIM_CALLBACK_URL }, (err, token, secret, results) => {
+            console.log('OAuth Request Token Results:', results);
             if (err) {
                 reject(err);
                 return;
@@ -33,6 +34,7 @@ async function createAuthorizeUrl(session) {
     });
 }
 async function getAccessToken(oauthToken, oauthTokenSecret, oauthVerifier, session) {
+    console.log(`getAccessToken called with oauthToken:`, oauthToken);
     return new Promise((resolve, reject) => {
         api_client_1.zaimOAuthClient.getOAuthAccessToken(oauthToken, oauthTokenSecret, oauthVerifier, (err, accessToken, accessTokenSecret) => {
             if (err) {
