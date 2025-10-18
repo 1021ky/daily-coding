@@ -1,11 +1,11 @@
-require 'csv'
+require "csv"
 
 #
 # アプリケーションで使う郵便番号と住所のデータを登録するサービス
 #
 module Zip
   class ZipDataRegisterService
-    CSV_FILE_NAME = 'ken_all.csv'.freeze
+    CSV_FILE_NAME = "ken_all.csv".freeze
     DEFAULT_CSV_PATH = ZipExtractor::EXTRACTED_FILE_DIR.join(CSV_FILE_NAME)
 
     def self.call(**args)
@@ -31,7 +31,7 @@ module Zip
 
       parsed_data = []
       # https://www.post.japanpost.jp/zipcode/dl/utf-readme.html の仕様に基づく
-      CSV.foreach(file_path, encoding: 'UTF-8') do |row|
+      CSV.foreach(file_path, encoding: "UTF-8") do |row|
         parsed_data << {
           zipcode: row[2].to_i,
           pref: row[6],

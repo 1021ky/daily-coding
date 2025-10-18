@@ -2,7 +2,7 @@
 # ZIPファイルからCSVを抽出する
 #
 module ZipExtractor
-  EXTRACTED_FILE_DIR = Rails.root.join('tmp', 'zipdata').freeze
+  EXTRACTED_FILE_DIR = Rails.root.join("tmp", "zipdata").freeze
   module_function
 
   #
@@ -21,7 +21,7 @@ module ZipExtractor
       FileUtils.rm_rf(Dir.glob("#{EXTRACTED_FILE_DIR}/*"))
     end
 
-    File.open(EXTRACTED_FILE_DIR.join(write_file_name), 'wb') do |f|
+    File.open(EXTRACTED_FILE_DIR.join(write_file_name), "wb") do |f|
       Zip::File.open_buffer(zip_format_data) do |zip|
         entry = zip.glob("**/*#{write_file_name}").first || zip.first
         raise "CSV not found in zip" unless entry

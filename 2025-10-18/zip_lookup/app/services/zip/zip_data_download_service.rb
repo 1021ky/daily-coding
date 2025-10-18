@@ -1,13 +1,12 @@
-require 'faraday'
-require 'zip'
-require 'stringio'
+require "faraday"
+require "zip"
+require "stringio"
 
 #
 # 郵便番号と住所ののデータを取得するサービス
 #
 class Zip::ZipDataDownloadService
-
-  CSV_FILE_NAME = 'ken_all.csv'.freeze
+  CSV_FILE_NAME = "ken_all.csv".freeze
 
   def initialize(client: JapanPostClient.new)
     @client = client

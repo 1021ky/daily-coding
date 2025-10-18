@@ -1,12 +1,11 @@
-require 'faraday'
-require 'zip'
-require 'stringio'
+require "faraday"
+require "zip"
+require "stringio"
 
 #
 # 日本郵便から公開されているデータを取得するクライアント
 #
 class JapanPostClient
-
   def fetch_zip_data
     conn = Faraday.new
     begin
@@ -25,6 +24,6 @@ class JapanPostClient
   private
 
   def URL
-    'https://www.post.japanpost.jp/zipcode/dl/utf/zip/utf_ken_all.zip'.freeze
+    "https://www.post.japanpost.jp/zipcode/dl/utf/zip/utf_ken_all.zip".freeze
   end
 end
