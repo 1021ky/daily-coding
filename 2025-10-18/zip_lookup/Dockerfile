@@ -27,7 +27,7 @@ FROM base AS build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git pkg-config && \
+    apt-get install --no-install-recommends -y build-essential git pkg-config libyaml-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -46,7 +46,7 @@ RUN bundle exec bootsnap precompile app/ lib/
 
 
 # Final stage for app image
-FROM base AS app
+FROM base AS rails_app
 
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -57,6 +57,23 @@ RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
+
+FROM base AS rails_dev_app
+
+ENV RAILS_ENV="development" \
+    BUNDLE_DEPLOYMENT="0" \
+    BUNDLE_PATH="/usr/local/bundle"
+
+# Copy built artifacts: gems, application
+COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
+COPY --from=build /rails /rails
+
+# Run and own only the runtime files as a non-root user for security
+RUN groupadd --system --gid 1000 rails && \
+    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    chown -R rails:rails db log storage tmp
+USER 1000:1000
+
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
@@ -69,7 +86,7 @@ CMD ["./bin/rails", "server"]
 
 
 # Sidekiq
-FROM base AS sidekiq
+FROM base AS sidekiq_app
 # Install Redis client library
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y redis-tools && \
@@ -83,11 +100,11 @@ RUN groupadd --system --gid 1000 rails && \
     chown -R rails:rails db log storage tmp
 USER 1000:1000
 # Start Sidekiq by default, this can be overwritten at runtime
-CMD ["./bin/sidekiq"]
+CMD ["bundle", "exec", "sidekiq"]
 
 
 # Redis
-FROM redis:7.0-alpine AS redis
+FROM redis:8.2.2-alpine AS sidekiq_redis
 EXPOSE 6379
 CMD ["redis-server", "--appendonly", "yes"]
 
