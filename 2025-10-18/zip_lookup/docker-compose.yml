@@ -1,0 +1,17 @@
+# 開発用にrails sidekiq, redisのコンテナを起動する
+version: "3.8"
+services:
+  app:
+    build: .
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+  sidekiq:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+  redis:
+    build: .
+    volumes:
+      - redis-data:/data
