@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_18_082834) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_18_084915) do
+  create_table "zip_code_addresses", force: :cascade do |t|
+    t.string "pref", limit: 64, null: false
+    t.string "city", limit: 64, null: false
+    t.string "town", limit: 256
+    t.integer "zip_code_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zip_code_id"], name: "index_zip_code_addresses_on_zip_code_id"
+  end
+
   create_table "zip_codes", force: :cascade do |t|
     t.integer "zipcode", limit: 7, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["zipcode"], name: "index_zip_codes_on_zipcode", unique: true
   end
+
+  add_foreign_key "zip_code_addresses", "zip_codes"
 end
