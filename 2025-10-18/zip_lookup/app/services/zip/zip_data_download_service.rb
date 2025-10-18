@@ -7,14 +7,15 @@ require 'stringio'
 #
 class Zip::ZipDataDownloadService
 
-  def initialize(client: JapanPostClient.new, extractor: ZipdataExtractor.new)
+  CSV_FILE_NAME = 'ken_all.csv'.freeze
+
+  def initialize(client: JapanPostClient.new)
     @client = client
-    @extractor = extractor
   end
 
   def call
     data = @client.fetch_zip_data
-    @extractor.extract(data)
+    ZipExtractor.extract_csv(data, write_file_name: CSV_FILE_NAME)
   rescue => e
     Rails.logger.error("Zip data download failed: #{e.message}")
     raise
