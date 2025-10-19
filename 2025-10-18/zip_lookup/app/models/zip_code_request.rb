@@ -16,7 +16,7 @@ class ZipCodeRequest
   def verify!
     return zip_code if valid?
 
-    raise InvalidRequestError, '郵便番号の指定に誤りがあります'
+    raise InvalidRequestError, "郵便番号の指定に誤りがあります"
   end
 
   def zip_code=(value)
