@@ -73,7 +73,8 @@ class ZipCode < ApplicationRecord
     true
   rescue => e
     Rails.logger.error("ZipCode bulk insert failed: #{e.message}")
-    rollback
+    raise ActiveRecord::Rollback
+  ensure
     false
   end
 end
