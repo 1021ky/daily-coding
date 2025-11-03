@@ -10,6 +10,8 @@ class LFUCache:
             self._remove_least_frequency_data()
         self._data_list[key] = value
         self._counter[key] = 1
+        # TODO: 既存キー更新時に頻度を維持せずに削除して再格納してしまっているのを解消する
+        # TODO:　頻度が同じ場合の対応
 
     def pop(self, key):
         if (value := self._data_list.get(key)) != None:
