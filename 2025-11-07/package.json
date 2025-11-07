@@ -1,0 +1,17 @@
+{
+  "name": "2025-11-07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.1",
+  "type": "module",
+  "devDependencies": {
+    "vitest": "^4.0.7"
+  }
+}
