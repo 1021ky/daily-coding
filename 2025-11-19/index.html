@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Music Player</title>
+</head>
+<body>
+  <button id="play">再生</button>
+
+  <audio id="player" src="./public/music/006-Shape of My Heart.m4a"></audio>
+
+  <script>
+    document.getElementById('play').addEventListener('click', () => {
+      document.getElementById('player').play();
+    });
+  </script>
+</body>
+</html>
