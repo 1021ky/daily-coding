@@ -7,6 +7,7 @@
 <body>
   <button id="play">再生</button>
   <button id="stop">停止</button>
+  <button id="pause">一時停止</button>
 
   <audio id="player" src="./public/music/006-Shape of My Heart.m4a"></audio>
 
@@ -17,6 +18,9 @@
     document.getElementById('stop').addEventListener('click', () => {
       document.getElementById('player').pause();
       document.getElementById('player').currentTime = 0;
+    });
+    document.getElementById('pause').addEventListener('click', () => {
+      document.getElementById('player').pause();
     });
   </script>
 </body>
