@@ -6,12 +6,17 @@
 </head>
 <body>
   <button id="play">再生</button>
+  <button id="stop">停止</button>
 
   <audio id="player" src="./public/music/006-Shape of My Heart.m4a"></audio>
 
   <script>
     document.getElementById('play').addEventListener('click', () => {
       document.getElementById('player').play();
+    });
+    document.getElementById('stop').addEventListener('click', () => {
+      document.getElementById('player').pause();
+      document.getElementById('player').currentTime = 0;
     });
   </script>
 </body>
