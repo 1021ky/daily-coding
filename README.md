@@ -6,22 +6,20 @@
 
 ### 言語
 
-* rust
-* c#
-* go
-* c++
-* python
-* java
-* javascript
-* typescript
-* ruby
-* php
-* kotlin
-* onyx
-* clojure
-* scala
-* gforth
-* erlang
+* Rust
+* C#
+* Golang
+* C++
+* Python
+* Java
+* JavaScript
+* TypeScript
+* Ruby
+* PHP
+* Kotlin
+* Clojure
+* Scala
+* Erlang
 
 ### 実装
 
