@@ -69,5 +69,5 @@ printf '%s\n' \
 '  "include": ["src", "**/*.test.ts", "**/*.spec.ts"]' \
 '}' > tsconfig.json &&
 printf '%s\n' \
-'out/*' > .gitignore
+'dist/*' > .gitignore
 ```
