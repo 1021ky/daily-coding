@@ -48,8 +48,8 @@ TypeScript
 ```
 nodenv local 24.9.0 && \
 pnpm init --init-package-manager --init-type=module && \
-pnpm add -D typescript @types/node vitest && \
-pnpm pkg set scripts.build="tsc -p tsconfig.json" scripts.start="pnpm build && node out/index.js" scripts.test="vitest" && \
+pnpm add -D typescript @types/node vitest eslint prettier && \
+pnpm pkg set scripts.build="tsc -p tsconfig.json" scripts.start="pnpm build && node dist/index.js" scripts.test="vitest" scripts.lint="eslint prettier --write src" && \
 mkdir -p src && \
 printf 'console.log("Hello TypeScript")\n' > src/index.ts && \
 printf '%s\n' \
@@ -63,7 +63,7 @@ printf '%s\n' \
 '    "skipLibCheck": true,' \
 '    "resolveJsonModule": true,' \
 '    "rootDir": "src",' \
-'    "outDir": "out",' \
+'    "outDir": "dist",' \
 '    "types": ["vitest", "node"]' \
 '  },' \
 '  "include": ["src", "**/*.test.ts", "**/*.spec.ts"]' \
