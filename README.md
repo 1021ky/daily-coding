@@ -41,3 +41,33 @@
 * uniq
 * wc
 
+### プロジェクト作成時のワンライナーメモ
+
+TypeScript
+
+```
+nodenv local 24.9.0 && \
+pnpm init --init-package-manager --init-type=module && \
+pnpm add -D typescript @types/node vitest && \
+pnpm pkg set scripts.build="tsc -p tsconfig.json" scripts.start="pnpm build && node out/index.js" scripts.test="vitest" && \
+mkdir -p src && \
+printf 'console.log("Hello TypeScript")\n' > src/index.ts && \
+printf '%s\n' \
+'{' \
+'  "compilerOptions": {' \
+'    "target": "ES2022",' \
+'    "module": "nodenext",' \
+'    "moduleResolution": "nodenext",' \
+'    "strict": true,' \
+'    "esModuleInterop": true,' \
+'    "skipLibCheck": true,' \
+'    "resolveJsonModule": true,' \
+'    "rootDir": "src",' \
+'    "outDir": "out",' \
+'    "types": ["vitest", "node"]' \
+'  },' \
+'  "include": ["src", "**/*.test.ts", "**/*.spec.ts"]' \
+'}' > tsconfig.json &&
+printf '%s\n' \
+'out/*' > .gitignore
+```
