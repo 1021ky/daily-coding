@@ -20,6 +20,7 @@ export default function sort(target: number[], left = 0, right = target.length -
   }
 
   // 同じ配列を参照渡しで再帰（境界のみ渡す）
+  // 1要素だけになるまで、再帰的に大きいものは右、小さいものは左に分けていく
   if (left < j) sort(target, left, j);
   if (i < right) sort(target, i, right);
 }
