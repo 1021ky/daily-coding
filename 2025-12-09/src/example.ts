@@ -1,23 +1,25 @@
-export default function sort(target: number[]): number[] {
-  if (target.length < 1) return target;
+export default function sort(target: number[], left = 0, right = target.length - 1): void {
+  if (left >= right) return;
 
-  const pivot = target[Math.ceil(target.length / 2)];
-  let less: number[] = [];
-  const mid: number[] = [];
-  let larger: number[] = [];
+  const pivot = target[Math.floor((left + right) / 2)];
+  let i = left;
+  let j = right;
 
-  target.forEach((value) => {
-    if (value < pivot) {
-      less.push(value);
-    } else if (value > pivot) {
-      larger.push(value);
-    } else {
-      mid.push(value);
+  // 部分配列を作らず、左右から走査して入れ替える
+  while (i <= j) {
+    // 期待通り並んでいないところを探しては入れ替える
+    while (target[i] < pivot) i++;
+    while (target[j] > pivot) j--;
+    if (i <= j) {
+      const tmp = target[i];
+      target[i] = target[j];
+      target[j] = tmp;
+      i++;
+      j--;
     }
-  });
+  }
 
-  less = sort(less);
-  larger = sort(larger);
-
-  return less.concat(mid, larger);
+  // 同じ配列を参照渡しで再帰（境界のみ渡す）
+  if (left < j) sort(target, left, j);
+  if (i < right) sort(target, i, right);
 }

@@ -7,6 +7,8 @@ test.each([
 ])(
   "sample($param) -> $expected",
   ({ param, expected }: { param: number[]; expected: number[] }) => {
-    expect(sort(param)).toEqual(expected);
+    sort(param);
+    const actual = param
+    expect(actual).toEqual(expected);
   },
 );
