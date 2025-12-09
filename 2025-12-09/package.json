@@ -1,0 +1,36 @@
+{
+  "name": "ts-pnpm-template",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm vite build && tsc -p tsconfig.json",
+    "start": "pnpm vite",
+    "test": "vitest",
+    "eslint": "eslint --ext .ts,.tsx,.js src",
+    "prettier": "prettier --write src",
+    "lint": "pnpm eslint --fix && pnpm prettier",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": "24.9.0"
+  },
+  "packageManager": "pnpm@10.18.1",
+  "dependencies": {
+      "vitest": "^4.0.15"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@eslint/eslintrc": "^3.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.48.1",
+    "eslint": "^9.39.1",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "typescript": "^5.9.3",
+    "@types/node": "^24.10.1",
+    "typescript-eslint": "^8.48.1",
+    "prettier": "^3.7.4",
+    "vite": "^7.2.6"
+  }
+}
