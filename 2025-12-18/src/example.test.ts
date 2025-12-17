@@ -13,5 +13,5 @@ test.each([
   "sample($param) -> $expected",
   ({ param, expected }: { param: number[]; expected: number[] }) => {
     expect(run(param)).toEqual(expected);
-  }
+  },
 );
