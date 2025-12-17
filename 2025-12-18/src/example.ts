@@ -12,6 +12,7 @@ function sort(
   const pivot = target[Math.floor((right - left) / 2) + left];
   let l_index = left;
   let r_index = right;
+  // 最終的にr_indexがpivotの位置になるように調整する
   while (l_index < r_index) {
     while (target[l_index] < pivot) l_index++;
     while (target[r_index] > pivot) r_index--;
